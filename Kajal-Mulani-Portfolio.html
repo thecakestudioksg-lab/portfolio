@@ -172,38 +172,48 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full">
-  <div id="app-wrapper" class="w-full h-full overflow-auto hero-pattern" style="background-color:#faf6f1;"><!-- Top Bar -->
+  <div id="app-wrapper" class="w-full h-full overflow-auto hero-pattern" style="background-color:#faf6f1;">
+   <!-- Top Bar -->
    <nav class="w-full flex items-center justify-between fade-in" style="border-bottom:1px solid rgba(160,120,80,0.15);">
     <div class="flex items-center gap-2 md:gap-3">
      <div class="brand-logo-svg" id="brand-logo">
-      <svg width="36" height="36" viewbox="0 0 44 44" fill="none" style="width:36px;height:36px;"><circle cx="22" cy="22" r="20" stroke="#8c6e50" stroke-width="1.5" fill="none" /> <circle cx="22" cy="22" r="15" stroke="#8c6e50" stroke-width="0.8" fill="none" stroke-dasharray="3 3" /> <path d="M14 26 C14 18, 22 12, 22 12 C22 12, 30 18, 30 26" stroke="#8c6e50" stroke-width="1.5" fill="none" stroke-linecap="round" /> <circle cx="22" cy="16" r="2.5" fill="#8c6e50" opacity="0.7" /> <path d="M18 26 L26 26" stroke="#8c6e50" stroke-width="1" stroke-linecap="round" /> <path d="M16 29 L28 29" stroke="#8c6e50" stroke-width="1.2" stroke-linecap="round" />
+      <svg width="36" height="36" viewbox="0 0 44 44" fill="none" style="width:36px;height:36px;">
+       <circle cx="22" cy="22" r="20" stroke="#8c6e50" stroke-width="1.5" fill="none" /> <circle cx="22" cy="22" r="15" stroke="#8c6e50" stroke-width="0.8" fill="none" stroke-dasharray="3 3" /> <path d="M14 26 C14 18, 22 12, 22 12 C22 12, 30 18, 30 26" stroke="#8c6e50" stroke-width="1.5" fill="none" stroke-linecap="round" /> <circle cx="22" cy="16" r="2.5" fill="#8c6e50" opacity="0.7" /> <path d="M18 26 L26 26" stroke="#8c6e50" stroke-width="1" stroke-linecap="round" /> <path d="M16 29 L28 29" stroke="#8c6e50" stroke-width="1.2" stroke-linecap="round" />
       </svg>
      </div>
-     <div><span id="nav-brand" class="font-display font-bold tracking-wide" style="color:#5a3e2b;font-size:1rem;">The_cake_studio</span>
+     <div>
+      <span id="nav-brand" class="font-display font-bold tracking-wide" style="color:#5a3e2b;font-size:1rem;">The_cake_studio</span>
       <div class="font-sans-alt text-xs tracking-widest uppercase" style="color:#a08060;">
        Portfolio
       </div>
      </div>
     </div>
-    <div class="hidden md:flex items-center gap-4 lg:gap-6 font-sans-alt text-xs tracking-widest uppercase" style="color:#8c6e50;"><a href="#about" class="hover:opacity-70 transition-opacity">About</a> <a href="#services" class="hover:opacity-70 transition-opacity">Services</a> <a href="#teaching" class="hover:opacity-70 transition-opacity">Teaching</a> <a href="#achievements" class="hover:opacity-70 transition-opacity">Awards</a>
+    <div class="hidden md:flex items-center gap-4 lg:gap-6 font-sans-alt text-xs tracking-widest uppercase" style="color:#8c6e50;">
+     <a href="#about" class="hover:opacity-70 transition-opacity">About</a> <a href="#services" class="hover:opacity-70 transition-opacity">Services</a> <a href="#teaching" class="hover:opacity-70 transition-opacity">Teaching</a> <a href="#achievements" class="hover:opacity-70 transition-opacity">Awards</a>
     </div>
    </nav><!-- Hero Section -->
    <section id="about" class="w-full md:px-6 py-8 md:py-12 lg:py-20 max-w-5xl mx-auto">
-    <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-12"><!-- Profile Pic Slot -->
+    <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-12">
+     <!-- Profile Pic Slot -->
      <div class="fade-in stagger-1 flex-shrink-0">
-      <div class="profile-ring" style="background: linear-gradient(135deg, #c9a87c, #8c6e50);"><img src="images/school1.jpeg?w=250&amp;h=250&amp;fit=crop" alt="Kajal Mulani - Cake Artist" class="rounded-full w-[150px] h-[150px] object-cover" loading="lazy" onerror="console.error('Image failed:', this.src); this.style.display='none'; this.parentElement.innerHTML='<div class=img-slot style=width:150px;height:150px;><i data-lucide=camera style=width:28px;height:28px;color:#8c6e50;></i></div>'">
+      <div class="profile-ring" style="background: linear-gradient(135deg, #c9a87c, #8c6e50); width:150px; height:150px; display:flex; align-items:center; justify-content:center;">
+       <svg width="80" height="80" viewbox="0 0 80 80" fill="none"><circle cx="40" cy="30" r="18" stroke="#faf6f1" stroke-width="2" fill="none" /> <path d="M15 65 Q15 50 40 50 Q65 50 65 65" stroke="#faf6f1" stroke-width="2" fill="none" stroke-linecap="round" /> <circle cx="32" cy="28" r="3" fill="#faf6f1" /> <circle cx="48" cy="28" r="3" fill="#faf6f1" /> <path d="M35 35 Q40 38 45 35" stroke="#faf6f1" stroke-width="1.5" fill="none" stroke-linecap="round" />
+       </svg>
       </div>
      </div><!-- Info -->
      <div class="flex-1 text-center md:text-left">
-      <div class="fade-in stagger-2"><span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">Cake Artist</span>
+      <div class="fade-in stagger-2">
+       <span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">Cake Artist</span>
       </div>
       <h1 id="hero-name" class="font-display font-bold mt-3 md:mt-4 fade-in stagger-3" style="color:#3d2b1f; line-height:1.15; font-size:2.25rem;">Kajal Mulani</h1>
       <p id="hero-tagline" class="font-body mt-2 md:mt-3 italic fade-in stagger-4" style="color:#8c6e50; font-size:1.25rem;">Well known cake artist in Kishangarh</p>
       <p class="font-body mt-4 md:mt-5 leading-relaxed fade-in stagger-5" style="color:#6b5340; max-width:560px; font-size:1rem;">With <strong>15 years of cooking experience</strong> and <strong>7 years of dedicated baking expertise</strong>, Kajal is a self-taught culinary artist from the charming town of <strong>Kishangarh, Ajmer District</strong>. She is one of the most famous personalities known for her extraordinary cakes, having learned the art of cooking entirely on her own.</p>
       <div class="flex flex-wrap gap-3 mt-5 md:mt-6 justify-center md:justify-start fade-in stagger-6">
-       <div class="flex items-center gap-2 font-sans-alt text-xs md:text-sm" style="color:#8c6e50;"><i data-lucide="map-pin" style="width:16px; height:16px;"></i> <span>Kishangarh, Rajasthan</span>
+       <div class="flex items-center gap-2 font-sans-alt text-xs md:text-sm" style="color:#8c6e50;">
+        <i data-lucide="map-pin" style="width:16px; height:16px;"></i> <span>Kishangarh, Rajasthan</span>
        </div>
-       <div class="flex items-center gap-2 font-sans-alt text-xs md:text-sm" style="color:#8c6e50;"><i data-lucide="award" style="width:16px; height:16px;"></i> <span id="hero-exp">15+ Years Experience</span>
+       <div class="flex items-center gap-2 font-sans-alt text-xs md:text-sm" style="color:#8c6e50;">
+        <i data-lucide="award" style="width:16px; height:16px;"></i> <span id="hero-exp">15+ Years Experience</span>
        </div>
       </div>
      </div>
@@ -211,103 +221,87 @@
    </section><!-- Delivery Reach -->
    <section class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
     <div class="rounded-2xl p-6 md:p-8" style="background:linear-gradient(135deg, rgba(140,110,80,0.08), rgba(200,170,130,0.06)); border:1px solid rgba(140,110,80,0.12);">
-     <div class="flex items-start gap-2 md:gap-3 mb-3 md:mb-4"><i data-lucide="truck" style="width:20px; height:20px; color:#8c6e50; flex-shrink:0;"></i>
+     <div class="flex items-start gap-2 md:gap-3 mb-3 md:mb-4">
+      <i data-lucide="truck" style="width:20px; height:20px; color:#8c6e50; flex-shrink:0;"></i>
       <h3 class="font-display font-semibold" style="color:#3d2b1f; font-size:1.125rem;">Cakes Delivered Across Rajasthan</h3>
      </div>
      <p class="font-body" style="color:#6b5340; font-size:1rem;">Her cakes travel far and wide — to <strong>Jaipur, Makrana, Sikar, Kuchaman, Ajmer, Beawar, Nasirabad, Pushkar</strong> and many more places across Rajasthan.</p>
     </div>
    </section><!-- Services Section -->
    <section id="services" class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
-    <div class="text-center mb-6 md:mb-8"><span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">What She Offers</span>
+    <div class="text-center mb-6 md:mb-8">
+     <span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">What She Offers</span>
      <h2 class="font-display font-bold mt-2 md:mt-3" style="color:#3d2b1f; font-size:1.875rem;">Classes &amp; Specialties</h2>
     </div>
-    <div class="flex flex-wrap justify-center gap-2" id="services-pills"><!-- Pills injected by JS -->
+    <div class="flex flex-wrap justify-center gap-2" id="services-pills">
+     <!-- Pills injected by JS -->
     </div>
    </section>
    <div class="divider-ornament" style="color:#c9a87c;">
-    <svg width="16" height="16" viewbox="0 0 16 16">
-     <path d="M8 0 L10 6 L16 8 L10 10 L8 16 L6 10 L0 8 L6 6 Z" fill="currentColor" opacity="0.5" />
+    <svg width="16" height="16" viewbox="0 0 16 16"><path d="M8 0 L10 6 L16 8 L10 10 L8 16 L6 10 L0 8 L6 6 Z" fill="currentColor" opacity="0.5" />
     </svg>
    </div><!-- School Teaching Section -->
    <section id="teaching" class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
-    <div class="text-center mb-6 md:mb-8"><span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">Teaching</span>
+    <div class="text-center mb-6 md:mb-8">
+     <span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">Teaching</span>
      <h2 class="font-display font-bold mt-2 md:mt-3" style="color:#3d2b1f; font-size:1.875rem;">School Cake Workshops</h2>
      <p class="font-body mt-2 italic" style="color:#8c6e50; font-size:0.95rem;">Invited to MSS Kishangarh &amp; Presidency Ajmer to teach cake making</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mt-6 md:mt-8"><img src="images/school1.jpeg?w=300&amp;h=400&amp;fit=crop" alt="School Workshop 1" class="rounded-xl object-cover w-full" style="height:280px;md-height:360px;" loading="lazy"> <img src="images/school2.jpeg?w=300&amp;h=400&amp;fit=crop" alt="School Workshop 2" class="rounded-xl object-cover w-full" style="height:280px;md-height:360px;" loading="lazy"> <img src="images/school3.jpeg?w=300&amp;h=400&amp;fit=crop" alt="School Workshop 3" class="rounded-xl object-cover w-full" style="height:280px;md-height:360px;" loading="lazy"> <img src="images/school4.jpeg?w=300&amp;h=400&amp;fit=crop" alt="School Workshop 4" class="rounded-xl object-cover w-full" style="height:280px;md-height:360px;" loading="lazy"> <img src="images/school5.jpeg?w=300&amp;h=400&amp;fit=crop" alt="School Workshop 5" class="rounded-xl object-cover w-full" style="height:280px;md-height:360px;" loading="lazy"> <img src="images/school6.jpeg?w=300&amp;h=400&amp;fit=crop" alt="School Workshop 6" class="rounded-xl object-cover w-full" style="height:280px;md-height:360px;" loading="lazy">
-    </div>
    </section>
    <div class="divider-ornament" style="color:#c9a87c;">
-    <svg width="16" height="16" viewbox="0 0 16 16">
-     <path d="M8 0 L10 6 L16 8 L10 10 L8 16 L6 10 L0 8 L6 6 Z" fill="currentColor" opacity="0.5" />
+    <svg width="16" height="16" viewbox="0 0 16 16"><path d="M8 0 L10 6 L16 8 L10 10 L8 16 L6 10 L0 8 L6 6 Z" fill="currentColor" opacity="0.5" />
     </svg>
    </div><!-- Home Cooking Classes -->
    <section class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
-    <div class="text-center mb-6 md:mb-8"><span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">Learn From Her</span>
+    <div class="text-center mb-6 md:mb-8">
+     <span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">Learn From Her</span>
      <h2 class="font-display font-bold mt-2 md:mt-3" style="color:#3d2b1f; font-size:1.875rem;">Home Cooking Classes</h2>
      <p class="font-body mt-2" style="color:#6b5340; font-size:0.95rem;">Come learn to make <strong>cookies, ice cream, tea cakes, biryani, vegetables, snacks, jar cakes, kulfi, faluda, cakes, natural ice creams</strong> and much more at her home studio.</p>
     </div>
-    <div class="horizontal-scroll-container mt-6 md:mt-8"><img src="images/class1.jpeg?w=360&amp;h=200&amp;fit=crop" alt="Home Class 1" class="rounded-xl object-cover" style="width:280px;md-width:360px;height:180px;md-height:200px;flex-shrink:0;" loading="lazy"> <img src="images/class2.jpeg?w=360&amp;h=200&amp;fit=crop" alt="Home Class 2" class="rounded-xl object-cover" style="width:280px;md-width:360px;height:180px;md-height:200px;flex-shrink:0;" loading="lazy"> <img src="images/class3.jpeg?w=360&amp;h=200&amp;fit=crop" alt="Home Class 3" class="rounded-xl object-cover" style="width:280px;md-width:360px;height:180px;md-height:200px;flex-shrink:0;" loading="lazy"> <img src="images/class4.jpeg?w=360&amp;h=200&amp;fit=crop" alt="Home Class 4" class="rounded-xl object-cover" style="width:280px;md-width:360px;height:180px;md-height:200px;flex-shrink:0;" loading="lazy"> <img src="images/class5.jpeg?w=360&amp;h=200&amp;fit=crop" alt="Home Class 5" class="rounded-xl object-cover" style="width:280px;md-width:360px;height:180px;md-height:200px;flex-shrink:0;" loading="lazy">
-    </div>
    </section>
-   <div class="divider-ornament" style="color:#c9a87c;">
-    <svg width="16" height="16" viewbox="0 0 16 16">
-     <path d="M8 0 L10 6 L16 8 L10 10 L8 16 L6 10 L0 8 L6 6 Z" fill="currentColor" opacity="0.5" /
-    </svg>
-   </div><!-- Delhi Professional Training -->
-   <section class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
-    <div class="text-center mb-6 md:mb-8"><span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">Professional Training</span>
-     <h2 class="font-display font-bold mt-2 md:mt-3" style="color:#3d2b1f; font-size:1.875rem;">Delhi — Wedding Cake Mastery</h2>
-     <p class="font-body mt-2" style="color:#6b5340; font-size:0.95rem;">Travelled to <strong>Delhi</strong> to learn the art of <strong>professional wedding cakes</strong>, bringing back world-class techniques to Rajasthan.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mt-6 md:mt-8"><img src="images/delhi1.jpeg?w=300&amp;h=300&amp;fit=crop" alt="Delhi Training 1" class="rounded-xl object-cover w-full" style="height:250px;md-height:300px;" loading="lazy"> <img src="images/delhi2.jpeg?w=300&amp;h=300&amp;fit=crop" alt="Delhi Training 2" class="rounded-xl object-cover w-full" style="height:250px;md-height:300px;" loading="lazy"> <img src="images/delhi3.jpeg?w=300&amp;h=300&amp;fit=crop" alt="Delhi Training 3" class="rounded-xl object-cover w-full" style="height:250px;md-height:300px;" loading="lazy">
-    </div>
-   </section>
-   <div class="divider-ornament" style="color:#c9a87c;">
-    <svg width="16" height="16" viewbox="0 0 16 16">
-     <path d="M8 0 L10 6 L16 8 L10 10 L8 16 L6 10 L0 8 L6 6 Z" fill="currentColor" opacity="0.5" />
-    </svg>
-   </div><!-- SuperChef Award -->
-    <section id="achievements" class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
-     <div class="text-center mb-6 md:mb-8">
-       <div class="inline-flex items-center gap-2 px-4 md:px-5 py-2 rounded-full mb-4" style="background:linear-gradient(135deg, #c9a87c, #8c6e50);">
-       <i data-lucide="trophy" style="width:16px;height:16px;color:#fff;"></i>
-      <span class="font-sans-alt text-xs font-semibold tracking-wide text-white">AWARD WINNER</span>
+  </div>
+  <div class="divider-ornament" style="color:#c9a87c;">
+   <svg width="16" height="16" viewbox="0 0 16 16"><path d="M8 0 L10 6 L16 8 L10 10 L8 16 L6 10 L0 8 L6 6 Z" fill="currentColor" opacity="0.5" />
+   </svg>
+  </div><!-- Delhi Professional Training -->
+  <section class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
+   <div class="text-center mb-6 md:mb-8">
+    <span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">Professional Training</span>
+    <h2 class="font-display font-bold mt-2 md:mt-3" style="color:#3d2b1f; font-size:1.875rem;">Delhi — Wedding Cake Mastery</h2>
+    <p class="font-body mt-2" style="color:#6b5340; font-size:0.95rem;">Travelled to <strong>Delhi</strong> to learn the art of <strong>professional wedding cakes</strong>, bringing back world-class techniques to Rajasthan.</p>
+   </div>
+  </section>
+  <div class="divider-ornament" style="color:#c9a87c;">
+   <svg width="16" height="16" viewbox="0 0 16 16"><path d="M8 0 L10 6 L16 8 L10 10 L8 16 L6 10 L0 8 L6 6 Z" fill="currentColor" opacity="0.5" />
+   </svg>
+  </div><!-- SuperChef Award -->
+  <section id="achievements" class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
+   <div class="text-center mb-6 md:mb-8">
+    <div class="inline-flex items-center gap-2 px-4 md:px-5 py-2 rounded-full mb-4" style="background:linear-gradient(135deg, #c9a87c, #8c6e50);">
+     <i data-lucide="trophy" style="width:16px;height:16px;color:#fff;"></i> <span class="font-sans-alt text-xs font-semibold tracking-wide text-white">AWARD WINNER</span>
     </div>
     <h2 class="font-display font-bold mt-2 md:mt-3" style="color:#3d2b1f; font-size:1.875rem;">SuperChef Rajasthan Winner</h2>
-    <p class="font-body mt-2" style="color:#6b5340; font-size:0.95rem;">
-      Proudly won the <strong>Rajasthan SuperChef Cooking Competition</strong> held in <strong>Jaipur</strong> — a testament to her exceptional culinary talent.
-    </p>
+    <p class="font-body mt-2" style="color:#6b5340; font-size:0.95rem;">Proudly won the <strong>Rajasthan SuperChef Cooking Competition</strong> held in <strong>Jaipur</strong> — a testament to her exceptional culinary talent and dedication to the craft of baking and cooking.</p>
+    <p class="font-body mt-3" style="color:#8c6e50; font-size:0.9rem;">This recognition showcases her mastery in creating exquisite flavors and innovative recipes that delight every palate. Her award-winning creations reflect years of passion, experimentation, and commitment to excellence in every dish.</p>
    </div>
-
-  <div class="grid grid-cols-1 gap-4 mt-6 md:mt-8 max-w-2xl mx-auto">
-    <img src="images/supechef1.jpeg?w=300&h=300&fit=crop"
-         alt="Award Photo 1"
-         class="rounded-xl object-cover w-full h-[250px] md:h-[300px]"
-         loading="lazy">
-
-    <img src="images/superchef2.jpeg?w=300&h=300&fit=crop"
-         alt="Award Photo 2"
-         class="rounded-xl object-cover w-full h-[250px] md:h-[300px]"
-         loading="lazy">
-  </div>
-</section>   </section><!-- Footer -->
-   <footer class="w-full md:px-6 py-8 md:py-12 mt-8 md:mt-10" style="background:rgba(61,43,31,0.95);">
-    <div class="max-w-5xl mx-auto text-center">
-     <div class="flex justify-center mb-3 md:mb-4">
-      <svg width="40" height="40" viewbox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="20" stroke="#c9a87c" stroke-width="1.5" fill="none" /> <circle cx="22" cy="22" r="15" stroke="#c9a87c" stroke-width="0.8" fill="none" stroke-dasharray="3 3" /> <path d="M14 26 C14 18, 22 12, 22 12 C22 12, 30 18, 30 26" stroke="#c9a87c" stroke-width="1.5" fill="none" stroke-linecap="round" /> <circle cx="22" cy="16" r="2.5" fill="#c9a87c" opacity="0.7" /> <path d="M18 26 L26 26" stroke="#c9a87c" stroke-width="1" stroke-linecap="round" /> <path d="M16 29 L28 29" stroke="#c9a87c" stroke-width="1.2" stroke-linecap="round" />
-      </svg>
-     </div>
-     <h3 id="footer-brand" class="font-display font-bold" style="color:#c9a87c; font-size:1.5rem;">The_cake_studio</h3>
-     <p class="font-body text-xs md:text-sm mt-1" style="color:rgba(201,168,124,0.7);">by Kajal Mulani</p>
-     <div class="flex justify-center gap-2 mt-3 md:mt-4 items-center text-xs md:text-sm" style="color:rgba(201,168,124,0.5);"><i data-lucide="map-pin" style="width:14px;height:14px;"></i> <span class="font-sans-alt">Kishangarh, Ajmer, Rajasthan</span>
-     </div>
-     <div class="mt-4 md:mt-6 font-sans-alt text-xs" style="color:rgba(201,168,124,0.35);">
-      © 2024 The_cake_studio. All rights reserved.
-     </div>
+  </section><!-- Footer -->
+  <footer class="w-full md:px-6 py-8 md:py-12 mt-8 md:mt-10" style="background:rgba(61,43,31,0.95);">
+   <div class="max-w-5xl mx-auto text-center">
+    <div class="flex justify-center mb-3 md:mb-4">
+     <svg width="40" height="40" viewbox="0 0 44 44" fill="none">
+      <circle cx="22" cy="22" r="20" stroke="#c9a87c" stroke-width="1.5" fill="none" /> <circle cx="22" cy="22" r="15" stroke="#c9a87c" stroke-width="0.8" fill="none" stroke-dasharray="3 3" /> <path d="M14 26 C14 18, 22 12, 22 12 C22 12, 30 18, 30 26" stroke="#c9a87c" stroke-width="1.5" fill="none" stroke-linecap="round" /> <circle cx="22" cy="16" r="2.5" fill="#c9a87c" opacity="0.7" /> <path d="M18 26 L26 26" stroke="#c9a87c" stroke-width="1" stroke-linecap="round" /> <path d="M16 29 L28 29" stroke="#c9a87c" stroke-width="1.2" stroke-linecap="round" />
+     </svg>
     </div>
-   </footer>
-  </div>
+    <h3 id="footer-brand" class="font-display font-bold" style="color:#c9a87c; font-size:1.5rem;">The_cake_studio</h3>
+    <p class="font-body text-xs md:text-sm mt-1" style="color:rgba(201,168,124,0.7);">by Kajal Mulani</p>
+    <div class="flex justify-center gap-2 mt-3 md:mt-4 items-center text-xs md:text-sm" style="color:rgba(201,168,124,0.5);">
+     <i data-lucide="map-pin" style="width:14px;height:14px;"></i> <span class="font-sans-alt">Kishangarh, Ajmer, Rajasthan</span>
+    </div>
+    <div class="mt-4 md:mt-6 font-sans-alt text-xs" style="color:rgba(201,168,124,0.35);">
+     © 2026 The_cake_studio. All rights reserved.
+    </div>
+   </div>
+  </footer>
   <script>
     // Services data
     const services = [
@@ -439,5 +433,5 @@
     applyConfig(defaultConfig);
     lucide.createIcons();
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ee29c92578cb895',t:'MTc3NjUwNDIxNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ee2fe7df4e2b895',t:'MTc3NjUwODIyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
