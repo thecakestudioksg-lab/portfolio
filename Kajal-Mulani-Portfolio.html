@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cake Studio - Kajal Mulani</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Josefin+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; width: 100%; }
+
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+    .font-body { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .font-sans-alt { font-family: 'Josefin Sans', sans-serif; }
+
+    .img-slot {
+      border: 2px dashed rgba(180,140,100,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .img-slot:hover {
+      border-color: rgba(180,140,100,0.8);
+      background: rgba(180,140,100,0.08);
+    }
+    .img-slot i { opacity: 0.4; }
+    .img-slot span { opacity: 0.5; font-size: 0.75rem; letter-spacing: 0.05em; }
+
+    .hero-pattern {
+      background-image: radial-gradient(circle at 20% 50%, rgba(180,140,100,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(140,100,70,0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 60% 80%, rgba(200,160,120,0.05) 0%, transparent 50%);
+    }
+
+    .divider-ornament {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 1.5rem auto;
+      max-width: 200px;
+    }
+    .divider-ornament::before,
+    .divider-ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+    .stagger-6 { animation-delay: 0.6s; }
+
+    .scroll-section { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+    .scroll-section.visible { opacity: 1; transform: translateY(0); }
+
+    .brand-logo-svg { filter: drop-shadow(0 2px 8px rgba(140,100,60,0.2)); }
+
+    .services-pill {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      transition: all 0.3s ease;
+      margin: 4px 3px;
+    }
+    .services-pill:hover { transform: translateY(-2px); }
+
+    @media (min-width: 768px) {
+      .services-pill {
+        padding: 6px 16px;
+        font-size: 0.8rem;
+      }
+    }
+
+    .profile-ring {
+      padding: 5px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .section-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    @media (min-width: 768px) {
+      .section-tag {
+        padding: 4px 14px;
+        font-size: 0.65rem;
+      }
+    }
+
+    .card-hover { transition: all 0.4s ease; }
+    .card-hover:hover { transform: translateY(-4px); }
+
+    .horizontal-scroll-container {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .horizontal-scroll-container::-webkit-scrollbar { height: 4px; }
+    .horizontal-scroll-container::-webkit-scrollbar-thumb { border-radius: 4px; background: rgba(140,100,60,0.3); }
+    .horizontal-scroll-container::-webkit-scrollbar-track { background: rgba(140,100,60,0.1); }
+    .horizontal-scroll-container > div { scroll-snap-align: start; flex-shrink: 0; }
+
+    /* Mobile optimizations */
+    @media (max-width: 640px) {
+      nav { padding: 0.75rem 1rem; gap: 0.5rem; }
+      nav .hidden { display: none; }
+      
+      section { padding: 1.5rem 1rem; }
+      
+      h1 { font-size: 1.875rem; }
+      h2 { font-size: 1.5rem; }
+      p { font-size: 0.95rem; }
+
+      .profile-ring { width: 150px; height: 150px; }
+      .img-slot { gap: 6px; }
+
+      .horizontal-scroll-container {
+        gap: 10px;
+      }
+      .horizontal-scroll-container > div {
+        min-width: 180px;
+      }
+
+      .grid {
+        gap: 12px;
+      }
+    }
+
+    /* Tablet optimizations */
+    @media (min-width: 641px) and (max-width: 1024px) {
+      section { padding: 2rem 1.5rem; }
+    }
+
+    /* Desktop optimizations */
+    @media (min-width: 1025px) {
+      section { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app-wrapper" class="w-full h-full overflow-auto hero-pattern" style="background-color:#faf6f1;"><!-- Top Bar -->
+   <nav class="w-full flex items-center justify-between fade-in" style="border-bottom:1px solid rgba(160,120,80,0.15);">
+    <div class="flex items-center gap-2 md:gap-3">
+     <div class="brand-logo-svg" id="brand-logo">
+      <svg width="36" height="36" viewbox="0 0 44 44" fill="none" style="width:36px;height:36px;"><circle cx="22" cy="22" r="20" stroke="#8c6e50" stroke-width="1.5" fill="none" /> <circle cx="22" cy="22" r="15" stroke="#8c6e50" stroke-width="0.8" fill="none" stroke-dasharray="3 3" /> <path d="M14 26 C14 18, 22 12, 22 12 C22 12, 30 18, 30 26" stroke="#8c6e50" stroke-width="1.5" fill="none" stroke-linecap="round" /> <circle cx="22" cy="16" r="2.5" fill="#8c6e50" opacity="0.7" /> <path d="M18 26 L26 26" stroke="#8c6e50" stroke-width="1" stroke-linecap="round" /> <path d="M16 29 L28 29" stroke="#8c6e50" stroke-width="1.2" stroke-linecap="round" />
+      </svg>
+     </div>
+     <div><span id="nav-brand" class="font-display font-bold tracking-wide" style="color:#5a3e2b;font-size:1rem;">The_cake_studio</span>
+      <div class="font-sans-alt text-xs tracking-widest uppercase" style="color:#a08060;">
+       Portfolio
+      </div>
+     </div>
+    </div>
+    <div class="hidden md:flex items-center gap-4 lg:gap-6 font-sans-alt text-xs tracking-widest uppercase" style="color:#8c6e50;"><a href="#about" class="hover:opacity-70 transition-opacity">About</a> <a href="#services" class="hover:opacity-70 transition-opacity">Services</a> <a href="#teaching" class="hover:opacity-70 transition-opacity">Teaching</a> <a href="#achievements" class="hover:opacity-70 transition-opacity">Awards</a>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="about" class="w-full md:px-6 py-8 md:py-12 lg:py-20 max-w-5xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8 lg:gap-12"><!-- Profile Pic Slot -->
+     <div class="fade-in stagger-1 flex-shrink-0">
+      <div class="profile-ring" style="background: linear-gradient(135deg, #c9a87c, #8c6e50);"><img src="images/school1.jpeg?w=250&amp;h=250&amp;fit=crop" alt="Kajal Mulani - Cake Artist" class="rounded-full w-[150px] h-[150px] object-cover" loading="lazy" onerror="console.error('Image failed:', this.src); this.style.display='none'; this.parentElement.innerHTML='<div class=img-slot style=width:150px;height:150px;><i data-lucide=camera style=width:28px;height:28px;color:#8c6e50;></i></div>'">
+      </div>
+     </div><!-- Info -->
+     <div class="flex-1 text-center md:text-left">
+      <div class="fade-in stagger-2"><span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">Cake Artist</span>
+      </div>
+      <h1 id="hero-name" class="font-display font-bold mt-3 md:mt-4 fade-in stagger-3" style="color:#3d2b1f; line-height:1.15; font-size:2.25rem;">Kajal Mulani</h1>
+      <p id="hero-tagline" class="font-body mt-2 md:mt-3 italic fade-in stagger-4" style="color:#8c6e50; font-size:1.25rem;">Well known cake artist in Kishangarh</p>
+      <p class="font-body mt-4 md:mt-5 leading-relaxed fade-in stagger-5" style="color:#6b5340; max-width:560px; font-size:1rem;">With <strong>15 years of cooking experience</strong> and <strong>7 years of dedicated baking expertise</strong>, Kajal is a self-taught culinary artist from the charming town of <strong>Kishangarh, Ajmer District</strong>. She is one of the most famous personalities known for her extraordinary cakes, having learned the art of cooking entirely on her own.</p>
+      <div class="flex flex-wrap gap-3 mt-5 md:mt-6 justify-center md:justify-start fade-in stagger-6">
+       <div class="flex items-center gap-2 font-sans-alt text-xs md:text-sm" style="color:#8c6e50;"><i data-lucide="map-pin" style="width:16px; height:16px;"></i> <span>Kishangarh, Rajasthan</span>
+       </div>
+       <div class="flex items-center gap-2 font-sans-alt text-xs md:text-sm" style="color:#8c6e50;"><i data-lucide="award" style="width:16px; height:16px;"></i> <span id="hero-exp">15+ Years Experience</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Delivery Reach -->
+   <section class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
+    <div class="rounded-2xl p-6 md:p-8" style="background:linear-gradient(135deg, rgba(140,110,80,0.08), rgba(200,170,130,0.06)); border:1px solid rgba(140,110,80,0.12);">
+     <div class="flex items-start gap-2 md:gap-3 mb-3 md:mb-4"><i data-lucide="truck" style="width:20px; height:20px; color:#8c6e50; flex-shrink:0;"></i>
+      <h3 class="font-display font-semibold" style="color:#3d2b1f; font-size:1.125rem;">Cakes Delivered Across Rajasthan</h3>
+     </div>
+     <p class="font-body" style="color:#6b5340; font-size:1rem;">Her cakes travel far and wide — to <strong>Jaipur, Makrana, Sikar, Kuchaman, Ajmer, Beawar, Nasirabad, Pushkar</strong> and many more places across Rajasthan.</p>
+    </div>
+   </section><!-- Services Section -->
+   <section id="services" class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
+    <div class="text-center mb-6 md:mb-8"><span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">What She Offers</span>
+     <h2 class="font-display font-bold mt-2 md:mt-3" style="color:#3d2b1f; font-size:1.875rem;">Classes &amp; Specialties</h2>
+    </div>
+    <div class="flex flex-wrap justify-center gap-2" id="services-pills"><!-- Pills injected by JS -->
+    </div>
+   </section>
+   <div class="divider-ornament" style="color:#c9a87c;">
+    <svg width="16" height="16" viewbox="0 0 16 16">
+     <path d="M8 0 L10 6 L16 8 L10 10 L8 16 L6 10 L0 8 L6 6 Z" fill="currentColor" opacity="0.5" />
+    </svg>
+   </div><!-- School Teaching Section -->
+   <section id="teaching" class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
+    <div class="text-center mb-6 md:mb-8"><span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">Teaching</span>
+     <h2 class="font-display font-bold mt-2 md:mt-3" style="color:#3d2b1f; font-size:1.875rem;">School Cake Workshops</h2>
+     <p class="font-body mt-2 italic" style="color:#8c6e50; font-size:0.95rem;">Invited to MSS Kishangarh &amp; Presidency Ajmer to teach cake making</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mt-6 md:mt-8"><img src="images/school1.jpeg?w=300&amp;h=400&amp;fit=crop" alt="School Workshop 1" class="rounded-xl object-cover w-full" style="height:280px;md-height:360px;" loading="lazy"> <img src="images/school2.jpeg?w=300&amp;h=400&amp;fit=crop" alt="School Workshop 2" class="rounded-xl object-cover w-full" style="height:280px;md-height:360px;" loading="lazy"> <img src="images/school3.jpeg?w=300&amp;h=400&amp;fit=crop" alt="School Workshop 3" class="rounded-xl object-cover w-full" style="height:280px;md-height:360px;" loading="lazy"> <img src="images/school4.jpeg?w=300&amp;h=400&amp;fit=crop" alt="School Workshop 4" class="rounded-xl object-cover w-full" style="height:280px;md-height:360px;" loading="lazy"> <img src="images/school5.jpeg?w=300&amp;h=400&amp;fit=crop" alt="School Workshop 5" class="rounded-xl object-cover w-full" style="height:280px;md-height:360px;" loading="lazy"> <img src="images/school6.jpeg?w=300&amp;h=400&amp;fit=crop" alt="School Workshop 6" class="rounded-xl object-cover w-full" style="height:280px;md-height:360px;" loading="lazy">
+    </div>
+   </section>
+   <div class="divider-ornament" style="color:#c9a87c;">
+    <svg width="16" height="16" viewbox="0 0 16 16">
+     <path d="M8 0 L10 6 L16 8 L10 10 L8 16 L6 10 L0 8 L6 6 Z" fill="currentColor" opacity="0.5" />
+    </svg>
+   </div><!-- Home Cooking Classes -->
+   <section class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
+    <div class="text-center mb-6 md:mb-8"><span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">Learn From Her</span>
+     <h2 class="font-display font-bold mt-2 md:mt-3" style="color:#3d2b1f; font-size:1.875rem;">Home Cooking Classes</h2>
+     <p class="font-body mt-2" style="color:#6b5340; font-size:0.95rem;">Come learn to make <strong>cookies, ice cream, tea cakes, biryani, vegetables, snacks, jar cakes, kulfi, faluda, cakes, natural ice creams</strong> and much more at her home studio.</p>
+    </div>
+    <div class="horizontal-scroll-container mt-6 md:mt-8"><img src="images/class1.jpeg?w=360&amp;h=200&amp;fit=crop" alt="Home Class 1" class="rounded-xl object-cover" style="width:280px;md-width:360px;height:180px;md-height:200px;flex-shrink:0;" loading="lazy"> <img src="images/class2.jpeg?w=360&amp;h=200&amp;fit=crop" alt="Home Class 2" class="rounded-xl object-cover" style="width:280px;md-width:360px;height:180px;md-height:200px;flex-shrink:0;" loading="lazy"> <img src="images/class3.jpeg?w=360&amp;h=200&amp;fit=crop" alt="Home Class 3" class="rounded-xl object-cover" style="width:280px;md-width:360px;height:180px;md-height:200px;flex-shrink:0;" loading="lazy"> <img src="images/class4.jpeg?w=360&amp;h=200&amp;fit=crop" alt="Home Class 4" class="rounded-xl object-cover" style="width:280px;md-width:360px;height:180px;md-height:200px;flex-shrink:0;" loading="lazy"> <img src="images/class5.jpeg?w=360&amp;h=200&amp;fit=crop" alt="Home Class 5" class="rounded-xl object-cover" style="width:280px;md-width:360px;height:180px;md-height:200px;flex-shrink:0;" loading="lazy">
+    </div>
+   </section>
+   <div class="divider-ornament" style="color:#c9a87c;">
+    <svg width="16" height="16" viewbox="0 0 16 16">
+     <path d="M8 0 L10 6 L16 8 L10 10 L8 16 L6 10 L0 8 L6 6 Z" fill="currentColor" opacity="0.5" /
+    </svg>
+   </div><!-- Delhi Professional Training -->
+   <section class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
+    <div class="text-center mb-6 md:mb-8"><span class="section-tag font-sans-alt" style="background:rgba(140,110,80,0.1); color:#8c6e50;">Professional Training</span>
+     <h2 class="font-display font-bold mt-2 md:mt-3" style="color:#3d2b1f; font-size:1.875rem;">Delhi — Wedding Cake Mastery</h2>
+     <p class="font-body mt-2" style="color:#6b5340; font-size:0.95rem;">Travelled to <strong>Delhi</strong> to learn the art of <strong>professional wedding cakes</strong>, bringing back world-class techniques to Rajasthan.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 mt-6 md:mt-8"><img src="images/delhi1.jpeg?w=300&amp;h=300&amp;fit=crop" alt="Delhi Training 1" class="rounded-xl object-cover w-full" style="height:250px;md-height:300px;" loading="lazy"> <img src="images/delhi2.jpeg?w=300&amp;h=300&amp;fit=crop" alt="Delhi Training 2" class="rounded-xl object-cover w-full" style="height:250px;md-height:300px;" loading="lazy"> <img src="images/delhi3.jpeg?w=300&amp;h=300&amp;fit=crop" alt="Delhi Training 3" class="rounded-xl object-cover w-full" style="height:250px;md-height:300px;" loading="lazy">
+    </div>
+   </section>
+   <div class="divider-ornament" style="color:#c9a87c;">
+    <svg width="16" height="16" viewbox="0 0 16 16">
+     <path d="M8 0 L10 6 L16 8 L10 10 L8 16 L6 10 L0 8 L6 6 Z" fill="currentColor" opacity="0.5" />
+    </svg>
+   </div><!-- SuperChef Award -->
+    <section id="achievements" class="scroll-section w-full md:px-6 py-8 md:py-10 max-w-5xl mx-auto">
+     <div class="text-center mb-6 md:mb-8">
+       <div class="inline-flex items-center gap-2 px-4 md:px-5 py-2 rounded-full mb-4" style="background:linear-gradient(135deg, #c9a87c, #8c6e50);">
+       <i data-lucide="trophy" style="width:16px;height:16px;color:#fff;"></i>
+      <span class="font-sans-alt text-xs font-semibold tracking-wide text-white">AWARD WINNER</span>
+    </div>
+    <h2 class="font-display font-bold mt-2 md:mt-3" style="color:#3d2b1f; font-size:1.875rem;">SuperChef Rajasthan Winner</h2>
+    <p class="font-body mt-2" style="color:#6b5340; font-size:0.95rem;">
+      Proudly won the <strong>Rajasthan SuperChef Cooking Competition</strong> held in <strong>Jaipur</strong> — a testament to her exceptional culinary talent.
+    </p>
+   </div>
+
+  <div class="grid grid-cols-1 gap-4 mt-6 md:mt-8 max-w-2xl mx-auto">
+    <img src="images/supechef1.jpeg?w=300&h=300&fit=crop"
+         alt="Award Photo 1"
+         class="rounded-xl object-cover w-full h-[250px] md:h-[300px]"
+         loading="lazy">
+
+    <img src="images/superchef2.jpeg?w=300&h=300&fit=crop"
+         alt="Award Photo 2"
+         class="rounded-xl object-cover w-full h-[250px] md:h-[300px]"
+         loading="lazy">
+  </div>
+</section>   </section><!-- Footer -->
+   <footer class="w-full md:px-6 py-8 md:py-12 mt-8 md:mt-10" style="background:rgba(61,43,31,0.95);">
+    <div class="max-w-5xl mx-auto text-center">
+     <div class="flex justify-center mb-3 md:mb-4">
+      <svg width="40" height="40" viewbox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="20" stroke="#c9a87c" stroke-width="1.5" fill="none" /> <circle cx="22" cy="22" r="15" stroke="#c9a87c" stroke-width="0.8" fill="none" stroke-dasharray="3 3" /> <path d="M14 26 C14 18, 22 12, 22 12 C22 12, 30 18, 30 26" stroke="#c9a87c" stroke-width="1.5" fill="none" stroke-linecap="round" /> <circle cx="22" cy="16" r="2.5" fill="#c9a87c" opacity="0.7" /> <path d="M18 26 L26 26" stroke="#c9a87c" stroke-width="1" stroke-linecap="round" /> <path d="M16 29 L28 29" stroke="#c9a87c" stroke-width="1.2" stroke-linecap="round" />
+      </svg>
+     </div>
+     <h3 id="footer-brand" class="font-display font-bold" style="color:#c9a87c; font-size:1.5rem;">The_cake_studio</h3>
+     <p class="font-body text-xs md:text-sm mt-1" style="color:rgba(201,168,124,0.7);">by Kajal Mulani</p>
+     <div class="flex justify-center gap-2 mt-3 md:mt-4 items-center text-xs md:text-sm" style="color:rgba(201,168,124,0.5);"><i data-lucide="map-pin" style="width:14px;height:14px;"></i> <span class="font-sans-alt">Kishangarh, Ajmer, Rajasthan</span>
+     </div>
+     <div class="mt-4 md:mt-6 font-sans-alt text-xs" style="color:rgba(201,168,124,0.35);">
+      © 2024 The_cake_studio. All rights reserved.
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // Services data
+    const services = [
+      "Cakes & Icing", "Wedding Cakes", "Ice Cream", "Natural Ice Cream",
+      "Professional Ice Cream", "Kulfi & Faluda", "Cookies", "Tea Cakes",
+      "Homemade Chocolate", "Soya Chaap", "Biryani", "Vegetables", "Snacks"
+    ];
+
+    const pillsContainer = document.getElementById('services-pills');
+    services.forEach(s => {
+      const pill = document.createElement('span');
+      pill.className = 'services-pill font-sans-alt';
+      pill.style.cssText = 'background:rgba(140,110,80,0.1); color:#5a3e2b; border:1px solid rgba(140,110,80,0.2);';
+      pill.textContent = s;
+      pillsContainer.appendChild(pill);
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.scroll-section').forEach(el => observer.observe(el));
+
+    // Element SDK
+    const defaultConfig = {
+      artist_name: 'Kajal Mulani',
+      brand_name: 'The_cake_studio',
+      intro_text: 'Well known cake artist in Kishangarh',
+      experience_text: '15+ Years Experience',
+      background_color: '#faf6f1',
+      surface_color: '#f5efe8',
+      text_color: '#3d2b1f',
+      accent_color: '#8c6e50',
+      footer_color: '#3d2b1f',
+      font_family: 'Playfair Display',
+      font_size: 16
+    };
+
+    function applyConfig(config) {
+      const c = { ...defaultConfig, ...config };
+
+      document.getElementById('hero-name').textContent = c.artist_name;
+      document.getElementById('hero-tagline').textContent = c.intro_text;
+      document.getElementById('hero-exp').textContent = c.experience_text;
+      document.getElementById('nav-brand').textContent = c.brand_name;
+      document.getElementById('footer-brand').textContent = c.brand_name;
+
+      // Colors
+      const wrapper = document.getElementById('app-wrapper');
+      wrapper.style.backgroundColor = c.background_color;
+
+      document.querySelectorAll('.img-slot').forEach(el => {
+        el.style.background = c.surface_color;
+      });
+
+      document.querySelectorAll('.section-tag').forEach(el => {
+        el.style.background = c.accent_color + '1a';
+        el.style.color = c.accent_color;
+      });
+
+      document.getElementById('hero-name').style.color = c.text_color;
+
+      document.getElementById('hero-tagline').style.color = c.accent_color;
+
+      document.querySelectorAll('.services-pill').forEach(el => {
+        el.style.color = c.text_color;
+        el.style.borderColor = c.accent_color + '33';
+        el.style.background = c.accent_color + '1a';
+      });
+
+      document.querySelector('footer').style.background = c.footer_color + 'f2';
+
+      // Fonts
+      const fontStack = `${c.font_family}, Georgia, serif`;
+      document.querySelectorAll('.font-display').forEach(el => {
+        el.style.fontFamily = fontStack;
+      });
+
+      const base = c.font_size;
+      document.getElementById('hero-name').style.fontSize = `${base * 3}px`;
+      document.getElementById('hero-tagline').style.fontSize = `${base * 1.4}px`;
+      document.querySelectorAll('.font-body').forEach(el => {
+        el.style.fontSize = `${base * 1.12}px`;
+      });
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => { applyConfig(config); },
+        mapToCapabilities: (config) => {
+          const c = { ...defaultConfig, ...config };
+          return {
+            recolorables: [
+              { get: () => c.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+              { get: () => c.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+              { get: () => c.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+              { get: () => c.accent_color, set: (v) => { config.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); } },
+              { get: () => c.footer_color, set: (v) => { config.footer_color = v; window.elementSdk.setConfig({ footer_color: v }); } }
+            ],
+            borderables: [],
+            fontEditable: {
+              get: () => c.font_family,
+              set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+            },
+            fontSizeable: {
+              get: () => c.font_size,
+              set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+            }
+          };
+        },
+        mapToEditPanelValues: (config) => {
+          const c = { ...defaultConfig, ...config };
+          return new Map([
+            ['artist_name', c.artist_name],
+            ['brand_name', c.brand_name],
+            ['intro_text', c.intro_text],
+            ['experience_text', c.experience_text]
+          ]);
+        }
+      });
+    }
+
+    applyConfig(defaultConfig);
+    lucide.createIcons();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ee29c92578cb895',t:'MTc3NjUwNDIxNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
